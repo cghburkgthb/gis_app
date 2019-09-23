@@ -4,10 +4,9 @@
 - Summary
 - PostgreSQL/PostGIS Database Setup
 - Python 3.x Application Environment Setup
-- Obtaining Google Map API Key
-- Downloading Source Data File 
+- Obtain Google Map API Key
+- Download Source Data File 
 - Application Execution Instructions
-- Adding Additional Street Addresses
 
 ## Summary
 
@@ -36,14 +35,7 @@ Within Anaconda Navigator, select Environments then click the create button loca
 
 From Navigator, add the psycopg2 package to you environment. On the 3rd panel change Installed to Not Installed. Then scroll down to find and click the selection box next to psycopg2. To install this package, click the "Apply" button in the lower, right hand corner.
 
-Below are the additional packages you need to in the virtual environment:
-- https://anaconda.org/conda-forge/googlemaps
-- conda install -c conda-forge googlemaps
-    
-- https://anaconda.org/conda-forge/flask-restful
-- conda install -c conda-forge flask-restful
-
-## Obtaining Google Map API Key
+## Obtain Google Map API Key
 
 Obtain your Google Map API key by following the instructions at the site below. Do not restrict the key to particular IP address initially.
 
@@ -51,11 +43,19 @@ Obtain your Google Map API key by following the instructions at the site below. 
 
 You will need to store your key in the gis_app.ini file mentioned below.
 
-## Creating Application Root Directory
+## Create Application Root Directory
 
 Create the application root directory "gis_app" within your development folder on your PC.
 
-## Downloading Source Data File
+## Install Additonal Python Pacakges
+
+Below are the additional Python packages you need to in the virtual environment: https://anaconda.org/conda-forge/googlemaps and https://anaconda.org/conda-forge/flask-restful. You can install them by running the following commands from the appliction root directory "gis_app", after opening an Anaconda Prompt terminal window (i.e., click State Menu > Anaconda > Anaconda Prompt)
+
+- conda install -c conda-forge googlemaps
+    
+- conda install -c conda-forge flask-restful
+
+## Download Source Data File
 
 Download the 2019 census state geography shapefile & related files from the location below:
 
@@ -65,43 +65,43 @@ Extract and store the files within the "data" folder in the application director
 
 ## Application Execution Instructions
 
-Activate the Python environment that you created from Anaconda Prompt terminal by entering the following command:
+Activate the Python environment that you created from a Anaconda Prompt terminal by entering the following command:
 - conda activate gis_app
 
 Next, navigate to the application root directory (i.e., ../gis_app)
 
-### Configuring the Application
+### Configure the Application
 
 Edit the file below replacing the place holders (e.g., \<password\>)
 with your own PostgreSQL database and Google Map credentials using a code text editor:
 
 - gis_app.ini
 
-### Creating the Database and Tables
+### Create the Database and Tables
 
 Execute the command below in order to create the target database: gis and table: us_state and related index:
 
 - python create_gis_tables.py
 
-### Loading the Database Tables
+### Load the Database Tables
 
 Run the following script to load the staging table: us_state_stg and target table: us_state:
 
 - python load_gis_data.py
 
-### Starting the Local Web Server
+### Start the Local Web Server
 
 Execute the command below to start a local Flask Web server:
 
 - python lookup_state.py
 
-### Looking Up the State Name of Addresses
+### Look Up the State Name of Addresses
 
 Open another Anaconda Prompt terminal window, activate your Python environment and run the following script to display the state name associated with a few addresses:
 
 - python test_gis_addr.py 
 
-## Adding Additional Street Addresses
+### Add Additional Street Addresses
 
 You might use the Web site below to generate random addresses and add them to the script: test_gis_addr.py
 
