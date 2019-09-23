@@ -1,6 +1,6 @@
 # gis_app
 Geography Application
-Below are the instructions to setup and execute the application on a PC, assuming a developer will be running the code.
+    Below are the instructions to setup and execute the application on a PC, assuming a developer will be running the code.
 
 PostgreSQL/PostGIS Database Setup
     Setup and test your PostgreSQL/PostGIS database. I found the following sites useful:
